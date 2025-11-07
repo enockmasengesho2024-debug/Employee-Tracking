@@ -1,6 +1,13 @@
 public class Main {
+
+    // public Employee name() {
+
+
+    //     return null;
+    // }
     public static void main(String[] args) {
         InputHelper helper = new InputHelper();
+        Employee nam1;
        //addd
         // Collect user input
         String fName = helper.getString("Enter your first name: ");
@@ -44,9 +51,10 @@ public class Main {
         System.out.println("Mileage Reimbursement: $" + mileageReimbursement);
         System.out.println("Total Pay (Salary + Mileage): $" + totalPay);
 
+        emp.setFullName("chang", lName);
         // Summaries
         StoryEngine.summary(emp);
-        StoryEngine.summary(fName);
+        StoryEngine.summary(emp.getFullName());
 
         helper.close();
     }
