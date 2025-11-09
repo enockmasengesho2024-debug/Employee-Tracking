@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         InputHelper helper = new InputHelper();
 
-       //addd
         // Collect user input
         String fName = helper.getString("Enter your first name: ");
         String lName = helper.getString("Enter your last name: ");
@@ -52,6 +51,10 @@ public class Main {
         StoryEngine.summary(emp);
         StoryEngine.summary(emp.getFullName());
 
+        // New Story Chapter/Section: Bonus Evaluation
+        StoryEngine.bonusChapter(emp);
+        
+        
         helper.close();
     }
 }
