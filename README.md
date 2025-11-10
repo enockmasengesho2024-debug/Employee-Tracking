@@ -1,166 +1,149 @@
-## Management records (Java Project)
+## Management Records And Employye Tracking (Java Project)
 
 ##  Overview
 This Java program is an **interactive “Adventure” system** where the user becomes part of a company and makes choices that affect the story.   
-It collects user input such as name, age, work hours, and salary, then uses **arrays**, **loops**,**method** and **conditional statements** to build an engaging experience.
+It collects user input such as name, age, work hours, and salary, and makes story-based decisions that affect the outcome. then uses **arrays**, **loops**,**method** and **conditional statements** to build an engaging experience.
 
----
+This version is a refactored and improved version of the original Management Records and Employee tracking project.
+It now follows Object-Oriented Programming (OOP) principles from Module 1 — with clean structure, encapsulation, and separate I/O boundaries.
 
-## Features Implemented  
+## What changed in the project
+- **Concept**
+  - Structure
+  - Encapsulation 
+  - Input/Output  
+  - Code Reuse   
+  - Overloading 
+  - Main Method 
+  - New Chapter 
+  - GitHub Workflow
+- **Before (Old Version)**: 
+  - One giant class Main.java 
+  - Variables inside main() 
+  - Mixed with logic
+  - Repeated logic  
+  - Present but limited
+  - Contained all logic
+  - None
+  - Manual zip uploads on the previous project
   
-  - `calculateMiles()` → Non-void return method.  
-  - `computeSalary(int punchIn, int punchOut, int hourlyRate)` → the parameters and returns a value.  
-  - `getValidatedInt()` → To handles the input validation with looping until correct.  
-  - `displayArray()` → To prints array contents.   
-  - `computeMileageReimbursement(int miles)` → Calculates reimbursement at **$0.15 per mile**.  
-  - Program prints **Hourly Salary, Mileage Reimbursement, and Total Pay (Salary + Mileage)**.  
-- **Method Overloading**:  
-  - `printSummary(String fName, int numEmployees, String proObj, boolean choose, String address)`  
-  - `printSummary(String fName)`  
-- **Arrays used** for: company departments, employee benefits, and story paths.  
-- **Control flow** with `if/else`, `switch`, `while`, and `for` loops.  
-
----
+- **After (OOP Refactor)**
+  - Split into 4 classes: Main, Employee, InputHelper, StoryEngine
+  - Private fields + constructor + getters in Employee
+  - Centralized in InputHelper (for input) and StoryEngine (for output)
+  - Modular methods reused across program 
+  - Enhanced: summary(Employee) and summary(String)
+  - Acts only as a driver/controller
+  - Acts only as a driver/controller
+  - Uses Issue → PR → Tag workflow for submission 
 
 ##  Technologies Used
-- **Language:** Java  
-- **Tool:** Any Java IDE (like VS Code, IntelliJ IDEA, or Eclipse) or Command Line  
-- **Core Concepts:** Arrays, Loops, Conditional Statements, User Input (`Scanner`)
+  - Language: Java
 
----
+  - Tools: VS Code / IntelliJ IDEA / Command Line
+  - Core Concepts:
+  - Classes and Objects
+  - Constructors and Encapsulation
+  - Arrays and Loops
+  - Conditional Statements (if/else, switch)
+  - Method Overloading and Return Types
+  - Input Validation with Scanner
+
+   
+## Class and their purpose
+  - `Main.java`:	Entry point — coordinates the program flow
+  - `Employee.java`:	Data model — stores user information (name, age, salary, etc.)
+  - `InputHelper.java`:	Handles validated user input and Scanner management
+  - `StoryEngine.java`:	Manages story logic, salary/mileage calculations, summaries, and new chapter
 
 ##  How It Works
-1. The program greets the user and collects basic data (name, age, salary, etc.).  
-2. It validates the user’s age (must be over 18).  
-3. It calculates total salary based on punch-in and punch-out hours.  
-4. It adjusts travel mileage with a small bonus system.  
+1. The user enters their personal details (name, age, pronouns, salary, etc.).
+2. Input is validated through InputHelper.
+3. An Employee object is created using a constructor.
+4. The StoryEngine displays:
+    - Introduction
+    - Story choices
+    - Salary and mileage reports
+    - End of day summaries
+
 5. Arrays are used to store and display **departments**, **benefits**, and **story paths**.  
 6. The user selects a story path, and the program prints a custom ending.  
 
 
 
 ##  Example Arrays
-==java===
-String[] departments = {"Marketing", "Finance", "IT", "Human Resources", "Customer Service"};
-String[] benefits = {"Health Insurance", "401K Plan", "Paid Vacation", "Bonus Program", "Mileage Reimbursement"};
+String[] company = {"Marketing", "Finance", "HR", "Customer Service", "Training", "Recruiting"};
 String[] storyPaths = {
-    "Take on a big new project for the company.",
-    "Help train a new employee.",
-    "Fix a critical computer issue in the IT department.",
-    "Join a team meeting to brainstorm a new product idea."
+  "Take on a big new project for the company.",
+  "Help train a new employee.",
+  "Fix a critical computer issue in the IT department.",
+  "Join a team meeting to share a new product idea.",
+  "Lead a company wellness event."
 };
-``
+for (String dept : company) {
+    System.out.println("* " + dept);
+}
+
+
+##  new story/ chapter
+After the main company adventure concludes, the program continues into a new section called “Bonus Evaluation.”
+
+- The company reviews your performance.
+- Your miles driven and total salary determine your bonus.
+- Encouraging messages appear depending on your results.
+  - **examole**
+
+  if (emp.getMiles() > 40 && emp.getTotalSalary() > 150) {
+    System.out.println("Congratulations! You earned a $50 performance bonus!");
+} else if (emp.getMiles() >= 25) {
+    System.out.println("Nice effort! You earned a $25 performance bonus!");
+} else {
+    System.out.println("Keep going! No bonus this time, but your dedication is noted.");
+}
+   - **Example Output**
+ New Chapter: Bonus Evaluation 
+After the successful day, Enock Masengesho receives an invitation to a company review meeting.
+Your manager is impressed by your hard work and daily miles!
+Now, you have a chance to earn an end-of-week performance bonus.
+Nice effort! You earned a $25 performance bonus!
+The review concludes with a team celebration and pizza party!
 
 
 
 ##  Example of Loops and Arrays ##
-### Loop to display benefits:
-
-for (String benefit : benefits) {
-    System.out.println("- " + benefit);
+  String[] company = {"Marketing", "Finance", "HR", "Customer Service", "Training", "Recruiting"};
+  String[] storyPaths = {
+  "Take on a big new project for the company.",
+  "Help train a new employee.",
+  "Fix a critical computer issue in the IT department.",
+  "Join a team meeting to share a new product idea.",
+  "Lead a company wellness event."
+};
+for (String dept : company) {
+    System.out.println("* " + dept);
 }
 
-
-### Loop to calculate salary:
-
-for (int i = punchIn; i < punchOut; i++) {
-    totalSalary += hourlyRate;
-}
-
-
-##  Example of input
-
-Enter your first name: Enock
-Enter your last name: Masengesho
-Choose a possessive adjective (his/her/their): his
-Enter your age (must be above 18): 
-Choose a pronoun subject (he/she/they): he
-Enter the miles you drive daily: 20
-Punch in time (24-hour clock): 8
-Punch out time (24-hour clock): 16
-Enter hourly rate: 15
-Number of employees: 50
-Choose a pronoun object (him/her/them): them
-Choose true or false: true
-Enter your address: 83651 Nampa Street
-
-## Example of output
-
-~ ~ ~ Company Adventure Story ~ ~ ~
-Enock Masengesho has been a loyal member of our company.
-his role is in the Marketing, Customer Service, Recruiting department.
-he drives 40 miles each day and earns $120 per day.
-
-Here are the benefits our company offers:
-* Health Insurance
-* 401K Retirement Plan
-* Paid Vacation
-* Bonus Program
-* Mileage Reimbursement
-* Paid Training
-
-What will you do today? (Enter 1-4): 2
-
-You patiently help train a new employee. They are grateful for your support and you gain a new friend.
-
- Salary Report 
-Hourly Salary: $120
-Mileage Reimbursement: $6.0
-Total Pay (Salary + Mileage): $126.0
-``
 ##  How to Run the Program
-1. Copy the file `Main.java` into your project folder.  
-2. Open a terminal in that folder.  
-3. Compile the program:
-   ```
-   ```bash
-   javac Main.java
-   
-4. Run it:
+  **Option 1:** Java IDE (VS Code / IntelliJ)
+ Place all .java files in one folder.
+ Open the folder in your IDE.
+ Run Main.java.
 
-   ``bash
-   java Main
-
-   ## Example Unit Test Outputs  
-
-These are lightweight “tests” that demonstrate methods returning the correct values.  
-
-- **Miles Calculation Test**  
-  ```java
-  System.out.println("Expected: 15 | Actual: " + calculateMiles(12));
-  System.out.println("Expected: 40 | Actual: " + calculateMiles(35));
-  System.out.println("Expected: 58 | Actual: " + calculateMiles(50));
-  ```
-
-- **Salary Computation Test**  
-  ```java
-  System.out.println("Expected: 80 | Actual: " + computeSalary(8, 12, 20));
-  ```
-
-- **Mileage Reimbursement Test**  
-  ```java
-  System.out.println("Expected: 15.0 | Actual: " + computeMileageReimbursement(100));
-  ```
-
-- **Overloaded Methods Test**  
-  ```java
-  printSummary("Enock", 5, "them", true, "123 nampa ct.");
-  printSummary("Enock");
-  ```
-
+   **option2:**
+  javac *.java 
+  java Main
 
    ## Future Improvements
-   This project is under construction, but it will have options for administrative tasks like
-1. delete
-2. save
-3. search
-4. history
-5. database
-6. export
-7. add, Etc.
+- This project is under construction, but it will have options for administrative tasks like
+1. - Add employee database for storing results.
+2. - Implement save/load features.
+3. - Create GUI version (JavaFX).
+4. - Add more story branches (promotion, remote work, etc.).
+5. - delete or update the data of employee
+6. - search the name of employee
+7. - history
+8. - export or print the employee records
 * And also, it will have employee options like tracking the salary, comments, Etc.
-
-
 ## Author
 **Enock Masengesho** 
 
