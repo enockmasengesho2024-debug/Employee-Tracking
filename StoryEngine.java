@@ -40,7 +40,7 @@ public class StoryEngine {
                 + " miles each day and earns $" + emp.getTotalSalary() + " per day.\n");
     }
 
-  // (inheritance/polymorphism core) 
+  // inheritance/polymorphism core
 
     public static StoryNode[] buildStoryOptions() {
         
@@ -69,13 +69,13 @@ public class StoryEngine {
                 new StoryNode[] { trainEmployee }
         );
 
-        // Polymorphic collection, all StoryNode types in one array 
+        // Polymorphic collection, all StoryNode
         return new StoryNode[] { bigProject, trainEmployee, fixIssue, ideaMeeting, wellness };
     }
 
     //   recursive, polymorphic experience 
 
-    // Recursion #1: play the story path (void)
+    //  play the story path (void)
     public static void playStoryFrom(StoryNode node, Employee emp) {
         if (node == null) {
             return; // base case
@@ -89,7 +89,7 @@ public class StoryEngine {
         }
     }
 
-    // Recursion #2: scalar result (int)
+    //  Scalar result (int)
     public static int countChapters(StoryNode node) {
         if (node == null) {
             return 0; // base case
